@@ -1,0 +1,6 @@
+// OK
+boolean b[10];
+void main ( ) {
+  if ( b[0] ) {
+  }
+}

@@ -1,0 +1,11 @@
+// 15. <location> = <expr> must have the same type
+void main ( ) {
+  boolean b;
+  while(b) {
+    int b;
+    boolean c;
+    while (c) {
+      b = false;
+    }
+  }
+}

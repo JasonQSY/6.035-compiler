@@ -1,0 +1,11 @@
+callout printf;
+void main ( ) {
+  int i;
+  for ( i = 1, 10 ) {
+    if ( i == 7 ) {
+      break;
+    }
+    printf ( "%d ", i );
+  }
+  printf ( "\n" );
+}

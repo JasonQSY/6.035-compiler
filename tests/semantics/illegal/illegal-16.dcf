@@ -1,0 +1,5 @@
+boolean b;
+void main ( ) {
+  b = !5;
+  // operand of ! must be boolean
+}

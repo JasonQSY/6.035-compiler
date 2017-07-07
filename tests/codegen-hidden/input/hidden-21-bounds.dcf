@@ -1,0 +1,11 @@
+callout printf;
+// This should produce a runtime error
+int a[10];
+void main ( ) {
+  int i, j;
+  j = 11;
+  for ( i = 0, j ) {
+    a[i] = i;
+    printf ( "%d\n", i );
+  }
+}

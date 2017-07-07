@@ -1,0 +1,8 @@
+callout getpid;
+// 14. The <location> and <expr> in an assignment, <location> = <expr>, 
+// and callout must be declared.
+void main ( ) {
+  boolean b;
+  b = getpida ( );
+  // Error: callouts must be declared
+}

@@ -1,0 +1,14 @@
+
+// testing ternary ifs
+
+void main() {
+
+
+    int x, y;
+
+    x = 1; y = 2;
+
+    return x > 0? y: -y;
+
+}
+

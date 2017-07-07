@@ -1,0 +1,10 @@
+void main(  ) {
+  int A;
+  A = 5;
+  break;
+  continue;
+  if (A > 2) {
+    continue;
+    break;
+  }
+}

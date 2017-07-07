@@ -1,0 +1,4 @@
+void foo(int a) {
+  // bool isn't a type, boolean is.
+  bool x;
+}

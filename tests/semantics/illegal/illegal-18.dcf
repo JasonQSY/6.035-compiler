@@ -1,0 +1,5 @@
+boolean b[10];
+void main ( ) {
+  int i;
+  i = @i; // can take only the length of an array
+}

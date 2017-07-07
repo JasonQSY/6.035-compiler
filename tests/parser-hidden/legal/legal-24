@@ -1,0 +1,12 @@
+void main ( ) {
+  if ( a > 10 ) {
+    for ( i = 0, a ) {
+      a = a - 1;
+    }
+  }
+  else {
+    for ( i = 0, a ) {
+      a = a + 1;
+    }
+  }
+}

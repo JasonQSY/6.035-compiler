@@ -1,0 +1,10 @@
+callout printf;
+void main ( ) {
+  int i, k;
+  int j;
+  i = 72;
+  for ( j = 1, 10 ) {
+    k = i + j;
+    printf ( "%d %d\n", i / j, k % j );
+  }
+}
