@@ -15,9 +15,22 @@ options
   k = 2;
 }
 
-tokens 
+tokens
 {
-  "class";
+  // Decaf reversed keywords
+  "boolean";
+  "break";
+  "callout";
+  "continue";
+  "else";
+  "false";
+  "for";
+  "while";
+  "if";
+  "int";
+  "return";
+  "true";
+  "void";
 }
 
 // Selectively turns on debug tracing mode.
@@ -43,11 +56,27 @@ tokens
   }
 }
 
+// {}
 LCURLY options { paraphrase = "{"; } : "{";
 RCURLY options { paraphrase = "}"; } : "}";
 
-ID options { paraphrase = "an identifier"; } : 
+// []
+LSQUAR options { paraphrase = "["; } : "[";
+RSQUAR options { paraphrase = "]"; } : "]";
+
+// ()
+LPAREN options { paraphrase = "("; } : "(";
+RPAREN options { paraphrase = ")"; } : ")";
+
+SEMICOLON options { paraphrase = ";"; } : ";";
+
+ID options { paraphrase = "an identifier"; } :
   ('a'..'z' | 'A'..'Z')+;
+
+INTLITERAL options { paraphrase = "an integer"; } : DIGIT (DIGIT)*;
+
+// char is any printable ASCII characters excluding ", ', \", \'
+CHARLITERAL : '\'' (ESC|~('\''|'\"'|'\\'|'\n'|'\t')) '\'';
 
 // Note that here, the {} syntax allows you to literally command the lexer
 // to skip mark this token as skipped, or to advance to the next line
@@ -60,3 +89,6 @@ STRING : '"' (ESC|~'"')* '"';
 
 protected
 ESC :  '\\' ('n'|'"');
+
+protected
+DIGIT : ('0'..'9');
