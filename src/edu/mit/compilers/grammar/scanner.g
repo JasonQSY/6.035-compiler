@@ -56,6 +56,9 @@ tokens
   }
 }
 
+// We need define some notations
+// otherwise they will be errors (unexpected char)
+
 // {}
 LCURLY options { paraphrase = "{"; } : "{";
 RCURLY options { paraphrase = "}"; } : "}";
@@ -70,25 +73,49 @@ RPAREN options { paraphrase = ")"; } : ")";
 
 SEMICOLON options { paraphrase = ";"; } : ";";
 
-ID options { paraphrase = "an identifier"; } :
-  ('a'..'z' | 'A'..'Z')+;
+MINUS : "-";
+PLUS : "+";
+ASSIGN : "=";
+TIMES : "*";
+GREATER : ">";
+LESS : "<";
+GE : ">=";
+LE : "<=";
+EQ : "==";
+NEQ : "!=";
+AND : "&&";
+OR : "||";
+COMMA : ",";
 
-INTLITERAL options { paraphrase = "an integer"; } : DIGIT (DIGIT)*;
+// integers
 
-// char is any printable ASCII characters excluding ", ', \", \'
-CHARLITERAL : '\'' (ESC|~('\''|'\"'|'\\'|'\n'|'\t')) '\'';
+protected DIGIT : ('0'..'9');
+protected LOWERCASE : ('a'..'z');
+protected UPPERCASE : ('A'..'Z');
+protected HEXDIGIT : DIGIT | LOWERCASE | UPPERCASE;
 
-// Note that here, the {} syntax allows you to literally command the lexer
-// to skip mark this token as skipped, or to advance to the next line
-// by directly adding Java commands.
-WS_ : (' ' | '\n' {newline();}) {_ttype = Token.SKIP; };
+protected DEC : DIGIT (DIGIT)*;
+protected HEX : "0x" HEXDIGIT (HEXDIGIT)*;
+
+INTLITERAL options { paraphrase = "an integer"; } : DEC | HEX;
+
+// char
+
+protected ESC : '\\' ('n'|'t'|'\"'|'\''|'\\');
+protected CHAR : (' '|'!'|('#'..'&')|('('..'[')|(']'..'~')|ESC);
+CHARLITERAL : "'" CHAR "'";
+
+// string
+
+STRINGLITERAL : '\"' (CHAR)* '\"';
+
+// identifiers
+
+protected ALPHA : LOWERCASE | UPPERCASE | '_';
+ID options { paraphrase = "an identifier"; } : ALPHA (ALPHA|DIGIT)*;
+
+// while space
+WS_ : (' ' | '\t' | '\n' {newline();}) {_ttype = Token.SKIP; };
+
+// single line comment
 SL_COMMENT : "//" (~'\n')* '\n' {_ttype = Token.SKIP; newline (); };
-
-CHAR : '\'' (ESC|~'\'') '\'';
-STRING : '"' (ESC|~'"')* '"';
-
-protected
-ESC :  '\\' ('n'|'"');
-
-protected
-DIGIT : ('0'..'9');
