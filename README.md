@@ -23,7 +23,24 @@
 ## Environment
 
 - Java
-- ant (`brew install ant`)
+- ant
+
+### Ubuntu
+
+Assume basic components like `git` has been installed.
+
+```bash
+sudo apt install ant
+sudo apt install openjdk-8-jdk
+```
+
+### OS X
+
+Assume basic components like `homebrew` have been installed.
+
+```bash
+brew install ant
+```
 
 ## Usage
 
