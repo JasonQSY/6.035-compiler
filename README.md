@@ -4,21 +4,11 @@
 
 ## Projects
 
-- Project 1: Scanner and Parser
-- Project 2: Semantic Checker
-- Project 3: Code Generator
-- Project 4: Dataflow Analysis
-- Project 5: Optimizer
-
-
-### Scanner
-
-- [Lexer Rules](https://github.com/antlr/antlr4/blob/master/doc/lexer-rules.md)
-
-### Parser
-
-- TODO
-
+- [ ] Project 1: Scanner and Parser
+- [ ] Project 2: Semantic Checker
+- [ ] Project 3: Code Generator
+- [ ] Project 4: Dataflow Analysis
+- [ ] Project 5: Optimizer
 
 ## Environment
 
@@ -69,3 +59,4 @@ To test a single testcase,
 - <http://6.035.scripts.mit.edu/sp16/schedule.html>
 - [ANTLR (Another Tool for Language Recognition)](http://antlr2.org/doc/index.html)
 - [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
+- [ANTLR2 Manual](http://www.antlr2.org/doc/index.html)
