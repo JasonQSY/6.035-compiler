@@ -117,3 +117,7 @@ QUESTION : "?";
 SLASH : "/";
 PERCENT : "%";
 PLUSASSIGN : "+=";
+MINUSASSIGN : "-=";
+AT : "@";
+EXCLAM : "!";
+COLON : ":";
