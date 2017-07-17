@@ -1,7 +1,8 @@
 2 INTLITERAL 123
 3 INTLITERAL 0xabc
 4 INTLITERAL 10101012
-variants line 5:10: unexpected char: 'g'
+5 INTLITERAL 0xdeadbee
+5 IDENTIFIER g
 6 -
 6 INTLITERAL 123
 7 BOOLEANLITERAL true
@@ -15,5 +16,5 @@ variants line 5:10: unexpected char: 'g'
 15 STRINGLITERAL "a"
 16 CHARLITERAL '\''
 17 CHARLITERAL '\"'
-18 INTLITERAL 1
-variants line 18:3: unexpected char: 'n'
+18 INTLITERAL 12
+18 IDENTIFIER n

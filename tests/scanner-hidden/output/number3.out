@@ -1,2 +1,2 @@
-number3 line 2:2: unexpected char: 'C'
-2 IDENTIFIER AFE5
+2 INTLITERAL 4
+2 IDENTIFIER CAFE5
