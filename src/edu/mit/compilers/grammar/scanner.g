@@ -59,20 +59,13 @@ tokens
 // We need define some notations
 // otherwise they will be errors (unexpected char)
 
-// {}
-LCURLY options { paraphrase = "{"; } : "{";
-RCURLY options { paraphrase = "}"; } : "}";
-
-// []
-LSQUAR options { paraphrase = "["; } : "[";
-RSQUAR options { paraphrase = "]"; } : "]";
-
-// ()
-LPAREN options { paraphrase = "("; } : "(";
-RPAREN options { paraphrase = ")"; } : ")";
-
-SEMICOLON options { paraphrase = ";"; } : ";";
-
+LCURLY : "{";
+RCURLY : "}";
+LSQUAR : "[";
+RSQUAR : "]";
+LPAREN : "(";
+RPAREN : ")";
+SEMICOLON : ";";
 MINUS : "-";
 PLUS : "+";
 ASSIGN : "=";
@@ -92,12 +85,12 @@ COMMA : ",";
 protected DIGIT : ('0'..'9');
 protected LOWERCASE : ('a'..'z');
 protected UPPERCASE : ('A'..'Z');
-protected HEXDIGIT : DIGIT | LOWERCASE | UPPERCASE;
+protected HEXDIGIT : DIGIT | ('a'..'f') | ('A'..'F');
 
-protected DEC : DIGIT (DIGIT)*;
-protected HEX : "0x" HEXDIGIT (HEXDIGIT)*;
+protected DEC : (DIGIT)+;
+protected HEX : "0x" (HEXDIGIT)+;
 
-INTLITERAL options { paraphrase = "an integer"; } : DEC | HEX;
+INTLITERAL : DEC | HEX;
 
 // char
 
@@ -119,3 +112,8 @@ WS_ : (' ' | '\t' | '\n' {newline();}) {_ttype = Token.SKIP; };
 
 // single line comment
 SL_COMMENT : "//" (~'\n')* '\n' {_ttype = Token.SKIP; newline (); };
+
+QUESTION : "?";
+SLASH : "/";
+PERCENT : "%";
+PLUSASSIGN : "+=";
